@@ -19,7 +19,7 @@ class AuthenticationView: UIView {
         let view: UIView?
         switch enterInfoResult {
         case .signIn:
-            view = SignUpView()
+            view = SignInView()
         case .signUp:
             view = SignUpView()
         }
@@ -117,8 +117,8 @@ class AuthenticationView: UIView {
         }
 
         enterInfoView.snp.makeConstraints { make in
-            make.top.equalTo(topView).inset(80)
-            make.left.right.equalToSuperview().inset(32)
+            make.top.equalTo(topView).inset(60)
+            make.left.right.equalToSuperview().inset(20)
             make.height.equalToSuperview().multipliedBy(0.28)
         }
 

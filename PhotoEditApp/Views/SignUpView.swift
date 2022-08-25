@@ -8,7 +8,6 @@ import SnapKit
 import ComponentKit
 
 class SignUpView: UIView {
-
     lazy var nameTextField: CKTextField = {
         var view = CKTextField()
         view.placeholderText = "Name"
@@ -38,7 +37,6 @@ class SignUpView: UIView {
     }
 
     private func setupSubViews() {
-
         addSubview(nameTextField)
         nameTextField.snp.makeConstraints { make in
             make.right.left.equalToSuperview().inset(32.0)
