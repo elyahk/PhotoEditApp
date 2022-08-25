@@ -7,7 +7,25 @@ import UIKit
 import SnapKit
 import ComponentKit
 
+enum EnterInfoResult {
+    case signIn
+    case signUp
+}
+
 class AuthenticationView: UIView {
+    let enterInfoResult = EnterInfoResult.signUp
+
+    lazy var enterInfoView: UIView = {
+        let view: UIView?
+        switch enterInfoResult {
+        case .signIn:
+            view = SignUpView()
+        case .signUp:
+            view = SignUpView()
+        }
+        return view ?? UIView()
+    }()
+
     lazy var signInBackgroundImage: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -29,32 +47,6 @@ class AuthenticationView: UIView {
         let view = CKPageController()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.titles = ["Sign In", "Sign Up", "As a Host"]
-
-        return view
-    }()
-
-    lazy var emailTextField: CKTextField = {
-        let view = CKTextField()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.placeholderText = "Email"
-
-        return view
-    }()
-
-    lazy var passwordTextField: CKTextField = {
-        let view = CKTextField()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.placeholderText = "Password"
-
-        return view
-    }()
-
-    lazy var forgotButton: UIButton = {
-        let view = UIButton()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.setTitle("Forgot Password", for: .normal)
-        view.titleLabel?.font = .systemFont(ofSize: 13.0)
-        view.setTitleColor(Colors.basePurple.colors, for: .normal)
 
         return view
     }()
@@ -103,9 +95,7 @@ class AuthenticationView: UIView {
         addSubview(signInBackgroundImage)
         addSubview(registrView)
         addSubview(topView)
-        addSubview(emailTextField)
-        addSubview(passwordTextField)
-        addSubview(forgotButton)
+//        addSubview(enterInfoView)
         addSubview(appleIcon)
         addSubview(googleIcon)
         addSubview(nextButton)
@@ -125,25 +115,10 @@ class AuthenticationView: UIView {
             make.top.equalTo(registrView).inset(40.0)
             make.right.equalToSuperview().inset(32)
         }
-
-        emailTextField.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(32.0)
-            make.height.equalTo(50.0)
-            make.top.equalTo(registrView).inset(110.0)
-        }
-
-        passwordTextField.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(32.0)
-            make.height.equalTo(50.0)
-            make.top.equalTo(emailTextField.snp_bottomMargin).inset(-20.0)
-        }
-
-        forgotButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp_bottomMargin).inset(-16.0)
-            make.right.equalToSuperview().inset(32.0)
-            make.left.equalToSuperview().inset(233.0)
-            make.height.equalTo(16.0)
-        }
+        
+//        enterInfoView.snp.makeConstraints { make in
+//            
+//        }
 
         appleIcon.snp.makeConstraints { make in
             make.bottom.equalTo(-32.0)
