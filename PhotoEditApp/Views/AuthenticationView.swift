@@ -95,7 +95,7 @@ class AuthenticationView: UIView {
         addSubview(signInBackgroundImage)
         addSubview(registrView)
         addSubview(topView)
-//        addSubview(enterInfoView)
+        addSubview(enterInfoView)
         addSubview(appleIcon)
         addSubview(googleIcon)
         addSubview(nextButton)
@@ -115,10 +115,12 @@ class AuthenticationView: UIView {
             make.top.equalTo(registrView).inset(40.0)
             make.right.equalToSuperview().inset(32)
         }
-        
-//        enterInfoView.snp.makeConstraints { make in
-//            
-//        }
+
+        enterInfoView.snp.makeConstraints { make in
+            make.top.equalTo(topView).inset(80)
+            make.left.right.equalToSuperview().inset(32)
+            make.height.equalToSuperview().multipliedBy(0.28)
+        }
 
         appleIcon.snp.makeConstraints { make in
             make.bottom.equalTo(-32.0)

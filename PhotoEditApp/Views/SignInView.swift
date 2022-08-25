@@ -8,31 +8,6 @@ import SnapKit
 import ComponentKit
 
 class SignInView: UIView {
-    lazy var signInBackgroundImage: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = Images.RegistrationPageImage.images
-
-        return view
-    }()
-
-    lazy var registrView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Colors.baseBackgroundDark.colors
-        view.clipsToBounds = true
-
-        return view
-    }()
-
-    lazy var topView: CKPageController = {
-        let view = CKPageController()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.titles = ["Sign In", "Sign Up", "As a Host"]
-
-        return view
-    }()
-
     lazy var emailTextField: CKTextField = {
         let view = CKTextField()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -59,36 +34,6 @@ class SignInView: UIView {
         return view
     }()
 
-    lazy var appleIcon: UIButton = {
-        let view = UIButton()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.setImage(Images.ic_apple.images, for: .normal)
-
-        return view
-    }()
-
-    lazy var googleIcon: UIButton = {
-        let view = UIButton()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.setImage(Images.ic_google.images, for: .normal)
-
-        return view
-    }()
-
-    lazy var nextButton: CKContentActionButton = {
-        let view = CKContentActionButton()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.configure(with: CKContentActionButtonViewModel(
-            text: "Next",
-            image: UIImage(systemName: "chevron.right"),
-            backgroundColor: Colors.basePurple.colors
-        ))
-        view.layer.cornerRadius = 24.0
-        view.clipsToBounds = true
-
-        return view
-    }()
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubViews()
@@ -100,68 +45,26 @@ class SignInView: UIView {
     }
 
     private func setupSubViews() {
-        addSubview(signInBackgroundImage)
-        addSubview(registrView)
-        addSubview(topView)
         addSubview(emailTextField)
         addSubview(passwordTextField)
         addSubview(forgotButton)
-        addSubview(appleIcon)
-        addSubview(googleIcon)
-        addSubview(nextButton)
-
-        signInBackgroundImage.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.65)
-        }
-
-        registrView.snp.makeConstraints { make in
-            make.right.left.bottom.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.57)
-        }
-
-        topView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(32.0)
-            make.top.equalTo(registrView).inset(40.0)
-            make.right.equalToSuperview().inset(32)
-        }
 
         emailTextField.snp.makeConstraints { make in
             make.right.left.equalToSuperview().inset(32.0)
-            make.height.equalTo(50.0)
-            make.top.equalTo(registrView).inset(110.0)
+            make.height.equalToSuperview().multipliedBy(0.22)
+            make.top.equalToSuperview()
         }
 
         passwordTextField.snp.makeConstraints { make in
             make.right.left.equalToSuperview().inset(32.0)
-            make.height.equalTo(50.0)
+            make.height.equalToSuperview().multipliedBy(0.22)
             make.top.equalTo(emailTextField.snp_bottomMargin).inset(-20.0)
         }
 
         forgotButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp_bottomMargin).inset(-16.0)
-            make.right.equalToSuperview().inset(32.0)
-            make.left.equalToSuperview().inset(233.0)
+            make.right.equalToSuperview().inset(35.0)
             make.height.equalTo(16.0)
-        }
-
-        appleIcon.snp.makeConstraints { make in
-            make.bottom.equalTo(-32.0)
-            make.left.equalTo(32.0)
-            make.width.height.equalTo(50.0)
-        }
-
-        googleIcon.snp.makeConstraints { make in
-            make.bottom.equalTo(-32.0)
-            make.left.equalTo(appleIcon.snp_rightMargin).inset(-20.0)
-            make.width.height.equalTo(50.0)
-        }
-
-        nextButton.snp.makeConstraints { make in
-            make.bottom.equalTo(-32.0)
-            make.right.equalTo(-32.0)
-            make.left.equalTo(googleIcon.snp_rightMargin).inset(-83.0)
-            make.height.equalTo(50.0)
         }
     }
 }
