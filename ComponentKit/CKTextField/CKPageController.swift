@@ -72,6 +72,7 @@ extension CKPageController {
         let lineView = UIView()
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.backgroundColor = Colors.basePurple.colors
+        lineView.layer.cornerRadius = 2.0
         lineView.snp.makeConstraints { make in
             make.height.equalTo(4.0)
             make.width.equalTo(27.0)
