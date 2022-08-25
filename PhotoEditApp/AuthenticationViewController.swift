@@ -6,10 +6,9 @@
 import UIKit
 import SnapKit
 
-class SignInViewController: UIViewController {
-    lazy var signInView: SignInView = {
-        let view = SignInView()
-
+class AuthenticationViewController: UIViewController {
+    lazy var signInView: AuthenticationView = {
+        let view = AuthenticationView()
         return view
     }()
 

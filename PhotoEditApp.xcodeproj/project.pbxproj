@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F995BD928B3A18300B62252 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F995BD828B3A18300B62252 /* SignInView.swift */; };
-		0FC3166228B5376200F422A4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3166128B5376200F422A4 /* SignInViewController.swift */; };
+		0FC3166228B5376200F422A4 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3166128B5376200F422A4 /* AuthenticationViewController.swift */; };
 		6E087C6128B4562E00DA4BF9 /* CKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E087C6028B4562E00DA4BF9 /* CKTextField.swift */; };
 		6E10F18528B1E09800FAD4DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10F18428B1E09800FAD4DC /* AppDelegate.swift */; };
 		6E10F18928B1E09800FAD4DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10F18828B1E09800FAD4DC /* ViewController.swift */; };
@@ -24,7 +24,7 @@
 		6EFF663628B677C700385620 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F995BDA28B3A4DC00B62252 /* CustomTextField.swift */; };
 		6EFF663728B677C700385620 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3166328B55F2900F422A4 /* CustomButton.swift */; };
 		6EFF663A28B67F6700385620 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6EFF663928B67F6700385620 /* SnapKit */; };
-		CE44437028B47BC400E51A35 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE44436F28B47BC400E51A35 /* SignUpViewController.swift */; };
+		8046037B28B7D00E008DAC97 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046037A28B7D00E008DAC97 /* AuthenticationView.swift */; };
 		CE44437228B47E2D00E51A35 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE44437128B47E2D00E51A35 /* SignUpView.swift */; };
 		CE44438628B494F600E51A35 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE44437A28B494F600E51A35 /* Montserrat-Medium.ttf */; };
 		CE44438728B494F600E51A35 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE44437B28B494F600E51A35 /* Montserrat-Light.ttf */; };
@@ -72,7 +72,7 @@
 		0F59A47728B65FBB004CAB97 /* CKPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKPageController.swift; sourceTree = "<group>"; };
 		0F995BD828B3A18300B62252 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0F995BDA28B3A4DC00B62252 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		0FC3166128B5376200F422A4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		0FC3166128B5376200F422A4 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		0FC3166328B55F2900F422A4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		6E087C6028B4562E00DA4BF9 /* CKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKTextField.swift; sourceTree = "<group>"; };
 		6E10F18128B1E09800FAD4DC /* PhotoEditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoEditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +87,7 @@
 		6EFF662F28B674D300385620 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		6EFF663228B6751C00385620 /* Extension + Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Font.swift"; sourceTree = "<group>"; };
 		803EB34828B28A9900B3236D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		CE44436F28B47BC400E51A35 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8046037A28B7D00E008DAC97 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		CE44437128B47E2D00E51A35 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		CE44437A28B494F600E51A35 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		CE44437B28B494F600E51A35 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -168,8 +168,7 @@
 				6EFF663528B6779500385620 /* Views */,
 				6E10F18428B1E09800FAD4DC /* AppDelegate.swift */,
 				6E10F18828B1E09800FAD4DC /* ViewController.swift */,
-				CE44436F28B47BC400E51A35 /* SignUpViewController.swift */,
-				0FC3166128B5376200F422A4 /* SignInViewController.swift */,
+				0FC3166128B5376200F422A4 /* AuthenticationViewController.swift */,
 				6E10F18D28B1E09900FAD4DC /* Assets.xcassets */,
 				6E10F18F28B1E09900FAD4DC /* LaunchScreen.storyboard */,
 				6E10F19228B1E09900FAD4DC /* Info.plist */,
@@ -213,6 +212,7 @@
 			children = (
 				0F995BD828B3A18300B62252 /* SignInView.swift */,
 				CE44437128B47E2D00E51A35 /* SignUpView.swift */,
+				8046037A28B7D00E008DAC97 /* AuthenticationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,11 +437,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE44437028B47BC400E51A35 /* SignUpViewController.swift in Sources */,
 				6E10F18928B1E09800FAD4DC /* ViewController.swift in Sources */,
 				6E10F18528B1E09800FAD4DC /* AppDelegate.swift in Sources */,
+				8046037B28B7D00E008DAC97 /* AuthenticationView.swift in Sources */,
 				CE44437228B47E2D00E51A35 /* SignUpView.swift in Sources */,
-				0FC3166228B5376200F422A4 /* SignInViewController.swift in Sources */,
+				0FC3166228B5376200F422A4 /* AuthenticationViewController.swift in Sources */,
 				0F995BD928B3A18300B62252 /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
