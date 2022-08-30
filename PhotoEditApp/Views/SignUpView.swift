@@ -39,21 +39,21 @@ class SignUpView: UIView {
     private func setupSubViews() {
         addSubview(nameTextField)
         nameTextField.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(32.0)
+            make.right.left.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.22)
             make.top.equalToSuperview()
         }
 
         addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(32.0)
+            make.right.left.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.22)
             make.top.equalTo(nameTextField.snp_bottomMargin).inset(-20.0)
         }
 
         addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(32.0)
+            make.right.left.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.22)
             make.top.equalTo(emailTextField.snp_bottomMargin).inset(-20.0)
         }

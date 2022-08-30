@@ -50,13 +50,13 @@ class SignInView: UIView {
         addSubview(forgotButton)
 
         emailTextField.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(32.0)
+            make.right.left.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.22)
             make.top.equalToSuperview()
         }
 
         passwordTextField.snp.makeConstraints { make in
-            make.right.left.equalToSuperview().inset(32.0)
+            make.right.left.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.22)
             make.top.equalTo(emailTextField.snp_bottomMargin).inset(-20.0)
         }

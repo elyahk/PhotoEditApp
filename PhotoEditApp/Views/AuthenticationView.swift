@@ -10,20 +10,23 @@ import ComponentKit
 enum EnterInfoResult {
     case signIn
     case signUp
+
+    var result: UIView {
+        switch self {
+        case .signIn: return SignInView()
+        case .signUp: return SignUpView()
+        }
+    }
 }
 
 class AuthenticationView: UIView {
-    let enterInfoResult = EnterInfoResult.signUp
+    var resultView = EnterInfoResult.signIn.result
 
     lazy var enterInfoView: UIView = {
-        let view: UIView?
-        switch enterInfoResult {
-        case .signIn:
-            view = SignInView()
-        case .signUp:
-            view = SignUpView()
-        }
-        return view ?? UIView()
+        var view = resultView
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
     }()
 
     lazy var signInBackgroundImage: UIImageView = {
@@ -43,10 +46,36 @@ class AuthenticationView: UIView {
         return view
     }()
 
-    lazy var topView: CKPageController = {
-        let view = CKPageController()
+//    lazy var topView: CKPageController = {
+//        let view = CKPageController()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.titles = ["Sign In", "Sign Up", "As a Host"]
+//
+//        return view
+//    }()
+
+    lazy var signUp: UIButton = {
+        let view = UIButton()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.titles = ["Sign In", "Sign Up", "As a Host"]
+        view.setTitle("sign up", for: .normal)
+        view.addTarget(self, action: #selector(signUpTapped(on:)), for: .touchUpInside)
+
+        return view
+    }()
+
+    lazy var signIn: UIButton = {
+        let view = UIButton()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setTitle("sign in", for: .normal)
+        view.addTarget(self, action: #selector(signInTapped(on:)), for: .touchUpInside)
+        return view
+    }()
+
+    lazy var registerTypeStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [signIn, signUp])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.distribution = .fillEqually
+        view.spacing = 10
 
         return view
     }()
@@ -94,7 +123,7 @@ class AuthenticationView: UIView {
     private func setupSubViews() {
         addSubview(signInBackgroundImage)
         addSubview(registrView)
-        addSubview(topView)
+        addSubview(registerTypeStackView)
         addSubview(enterInfoView)
         addSubview(appleIcon)
         addSubview(googleIcon)
@@ -110,15 +139,15 @@ class AuthenticationView: UIView {
             make.height.equalToSuperview().multipliedBy(0.57)
         }
 
-        topView.snp.makeConstraints { make in
+        registerTypeStackView.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(32.0)
             make.top.equalTo(registrView).inset(40.0)
             make.right.equalToSuperview().inset(32)
         }
 
         enterInfoView.snp.makeConstraints { make in
-            make.top.equalTo(topView).inset(60)
-            make.left.right.equalToSuperview().inset(20)
+            make.top.equalTo(registerTypeStackView).inset(60)
+            make.left.right.equalToSuperview().inset(32)
             make.height.equalToSuperview().multipliedBy(0.28)
         }
 
@@ -140,5 +169,15 @@ class AuthenticationView: UIView {
             make.left.equalTo(googleIcon.snp_rightMargin).inset(-83.0)
             make.height.equalTo(50.0)
         }
+    }
+
+    @objc func signInTapped(on: UIButton) {
+        resultView = EnterInfoResult.signIn.result
+        print("in")
+    }
+
+    @objc func signUpTapped(on: UIButton) {
+        resultView = EnterInfoResult.signUp.result
+        print("up")
     }
 }
