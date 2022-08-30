@@ -20,10 +20,15 @@ enum EnterInfoResult {
 }
 
 class AuthenticationView: UIView {
+    struct Events {
+        var onChangeTo: ((EnterInfoResult) -> Void)?
+    }
+
+    var events: Events = .init()
     var resultView = EnterInfoResult.signIn.result
 
     lazy var enterInfoView: UIView = {
-        var view = resultView
+        var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
 
         return view
@@ -172,12 +177,19 @@ class AuthenticationView: UIView {
     }
 
     @objc func signInTapped(on: UIButton) {
-        resultView = EnterInfoResult.signIn.result
-        print("in")
+        events.onChangeTo?(.signIn)
     }
 
     @objc func signUpTapped(on: UIButton) {
-        resultView = EnterInfoResult.signUp.result
-        print("up")
+        events.onChangeTo?(.signUp)
+    }
+
+    public func addContentAuthView(_ view: UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        enterInfoView.subviews.forEach { $0.removeFromSuperview() }
+        enterInfoView.addSubview(view)
+        view.snp.makeConstraints { make in
+            make.top.left.bottom.right.equalTo(enterInfoView)
+        }
     }
 }

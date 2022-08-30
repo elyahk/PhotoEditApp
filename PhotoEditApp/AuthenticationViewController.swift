@@ -7,8 +7,26 @@ import UIKit
 import SnapKit
 
 class AuthenticationViewController: UIViewController {
-    lazy var signInView: AuthenticationView = {
+    lazy var signInView: SignInView = {
+        let view = SignInView()
+
+        return view
+    }()
+
+    lazy var signUpView: SignUpView = SignUpView()
+
+    lazy var authenticationView: AuthenticationView = {
         let view = AuthenticationView()
+
+        view.events.onChangeTo = { type in
+            switch type {
+            case .signIn:
+                view.addContentAuthView(self.signInView)
+            case .signUp:
+                view.addContentAuthView(self.signUpView)
+            }
+        }
+
         return view
     }()
 
@@ -18,8 +36,8 @@ class AuthenticationViewController: UIViewController {
     }
 
     private func setupSubViews() {
-        view.addSubview(signInView)
-        signInView.snp.makeConstraints { make in
+        view.addSubview(authenticationView)
+        authenticationView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalToSuperview()
         }
     }
